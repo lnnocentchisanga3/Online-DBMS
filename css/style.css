@@ -5,12 +5,28 @@
 html{
 	scroll-behavior: smooth;
 }
-header{
+
+.sh:hover{
+	color: white;
+	transition: ease-in;
+	transition-delay: 0.05s;
+	-moz-transform: scale(1.2,1.2);
+    -webkit-transform: scale(1.2,1.2);
+    -o-transform: scale(1.2,1.2);
+    -ms-transform: scale(1.2,1.2);
+    transform: scale(1.2,1.2);
+}
+
+#docx, #all, #update{
+	display: none;
+}
+.header{
 	background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url(../images/mac.jpeg);
 	background-size: cover;
 	background-attachment: fixed;
 	border-bottom: 0.1rem solid dodgerblue;
 }
+
 .back{
 	margin-right: 2%;
 }
@@ -22,7 +38,7 @@ header{
 
 .welcome{
 	padding-bottom: 5rem;
-	background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url(../images/mac.jpeg);
+	background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(25,25,25,0.6)), url(../images/mac.jpeg);
 	background-size: cover;
 	background-attachment: fixed;
 }

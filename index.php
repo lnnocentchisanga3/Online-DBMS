@@ -9,29 +9,15 @@
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
 </head>
 <body class="bg-white" onload="myConfirm();">
+	<head class="col-md-12 mb-5">
+		<h6 class="text-center text-uppercase py-4">we are here to serve you better</h6>
+	</head>
 	<?php
 include_once "assets/header.php";
 	?>
 
 
-	<!-- <script>
-		function myConfirm() {
-			document.querySelector('.modal').style.display = "block";
-			document.getElementById('close').addEventListener('click',function() {
-				document.querySelector('.modal').style.display = "none";
-			});
-		}
-
-		function myPin() {
-			var x = document.getElementById('pwd').value;
-			document.getElementById('answer').innerHTML = x;
-			if (x == "9455@Dbms"){
-				document.querySelector('.modal').style.display = "none";
-			}else{
-				document.getElementById('answer').innerHTML = x+" "+"is not a right Pin";
-			}
-		}
-	</script> -->
+	
 	<div class="modal col-lg-12" id="modal">
 		<div class="text-danger mt-3 mr-3" style="font-size: 3rem; float: right;" id="close"></div>
 		<div class="modal-body col-lg-6 container" id="modal-body">
@@ -53,7 +39,7 @@ include_once "assets/header.php";
 		<div class="text-center text-white col-lg-12 pt-5">
 			<h1 id="welcome">WELCOME</h1>
 			<h1>to</h1>
-			<h1 class="text-primary"> PERSONAL BDMS</h1>
+			<h1 class="text-primary"> PERSONAL STORAGE</h1>
 		</div>
 		<div class="col-lg-12 pt-5 container">
 			<div class="row">
