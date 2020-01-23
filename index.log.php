@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>user| Dashboard</title>
+	<title>Personal Storage</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
