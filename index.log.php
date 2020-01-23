@@ -203,7 +203,6 @@ if (!$result) {
 ?>
 </section>
 </div>
-
 <div class="row col-md-12">
   <div class="col-md-1">
     
