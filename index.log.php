@@ -5,12 +5,44 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Personal Storage</title>
+	<title>user| Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+ 
+
+  <style>
+
+    
+
+.team-member {
+  margin-top: 20px;
+  margin-bottom:0px;
+  text-align: center;
+}
+
+.profile-pic img {
+  width: 70px;
+  height: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+  
+
+
+.team-member img {
+  width: 225px;
+  height: 225px;
+  border: 7px solid rgba(0, 0, 0, 0.1);
+}
+  
+  </style>
+
 </head>
 <body style="background-color: ">
 <?php
@@ -24,7 +56,32 @@ require 'assets/header.dashboard.php';
   </div>
   <ul class="nav justify-content-center bg-light shadow-lg border rounded col-md-8 mt-5">
   <li id="showProfile" class="sh nav-item py-3" >
-    <a class="nav-link active ml-1 text-dark hover" href="#"><i class="fa fa-user-circle fa-2x"></i></a>
+    <a class="nav-link active ml-1 text-dark hover" href="#">
+
+
+<?php
+
+$query = "SELECT * FROM user WHERE  email = '$_SESSION[useremail]' ";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+die("failed to get data".mysqli_error($conn));
+}else{
+while ($row = mysqli_fetch_assoc($result)) {
+        
+        $propic =$row['profile_pic'];
+
+?>   
+
+          <div class="profile-pic">
+          <img class="mx-auto rounded-circle"  src="photos/<?php echo $propic; ?>"  alt="">
+        </div>
+    
+<?php 
+}}
+?>
+
+  </a>
   </li>
    <script>
     
@@ -78,6 +135,8 @@ require 'assets/header.dashboard.php';
     
   </div>
   <section id="profile" class="col-md-10 mt-5 shadow-lg rounded border border-light row">
+  <div class="container">
+  <div class="row">
   <?php
 
   $query = "SELECT * FROM user WHERE  email = '$_SESSION[useremail]' ";
@@ -91,6 +150,7 @@ if (!$result) {
           $lname = $row['last_name'];
           $email = $row['email'];
           $uname = $row['username'];
+          $propic =$row['profile_pic']
 
 ?>
     
@@ -111,11 +171,16 @@ if (!$result) {
           <div class="col-md-2">
             
           </div>
+
+          
           <form id="hide" class="form col-md-8 border mb-5 mt-5 shadow-lg rounded">
-            <div class="col-md-12 text-center mt-5">
-            <i class="fa fa-user-circle fa-4x"></i>
             
-          </div>
+        <div class="col-md-12">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle"  src="photos/<?php echo $propic; ?>"  alt="">
+           </div>
+      </div>
+
            <div class="col-md-12 text-center border-bottom py-5">
          <?php echo "Firstname : ".$fname; ?>
         
@@ -131,6 +196,7 @@ if (!$result) {
           </div>
           </form>
 </div>
+
 <div id="update"  class="col-md-12 mt-5 ml-4 row">
    <div class="col-md-2">
             
@@ -159,7 +225,7 @@ if (!$result) {
           <button type="submit" name="update" class="btn btn-primary col-md-8  ml-2 mb-4"><i class="fa fa-save"></i> save</button>
           </form>
 </div>
-     
+</div>
 <?php
 }
 }
