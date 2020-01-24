@@ -2,7 +2,7 @@
 		<div class="row">
 
 			<div class="col-lg-6 text-center text-dark py-2">
-				<h3><i class="fa fa-book text-primary"></i> PESONAL STORAGE</h3>
+				<h3 class="brand"><i class="fa fa-book text-primary"></i> Personal Storage</h3>
 			</div>
 			<div class="col-lg-6 py-2">
 				<div class="col-lg-4 float-right">
