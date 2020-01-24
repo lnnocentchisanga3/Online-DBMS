@@ -6,43 +6,9 @@ session_start();
 <html>
 <head>
 	<title>user| Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
- 
-
-  <style>
-
-    
-
-.team-member {
-  margin-top: 20px;
-  margin-bottom:0px;
-  text-align: center;
-}
-
-.profile-pic img {
-  width: 70px;
-  height: 60px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-  
-
-
-.team-member img {
-  width: 225px;
-  height: 225px;
-  border: 7px solid rgba(0, 0, 0, 0.1);
-}
-  
-  </style>
-
+  <?php
+  include_once 'assets/head.php';
+  ?>
 </head>
 <body style="background-color: ">
 <?php
@@ -54,7 +20,7 @@ require 'assets/header.dashboard.php';
   <div class="col-md-2">
     
   </div>
-  <ul class="nav justify-content-center bg-light shadow-lg border rounded col-md-8 mt-5">
+  <ul class="nav justify-content-center bg-light shadow-lg border rounded col-md-8 mt-4">
   <li id="showProfile" class="sh nav-item py-3" >
     <a class="nav-link active ml-1 text-dark hover" href="#">
 
@@ -155,8 +121,15 @@ if (!$result) {
 ?>
     
          <div class="col-md-12 mt-5 ml-4 row">
-         <div class="col-md-12">
-            <button id="showUpdate" class="btn btn-primary float-right shadow"><i class="fa fa-edit"></i> update Profile</button>
+       
+        
+        <div class="col-md-7 col-sm-12 " >
+         <p class="profile ml-1 text-dark float-right" style="font-size:30px;margin-right:50px;" ><em> Profile</em></p>
+  </div>
+  <div class="col-md-5 col-sm-12 ">
+  <button id="showUpdate" class="btn btn-primary float-right shadow"><i class="fa fa-edit"></i> update Profile</button>
+        
+          
          </div>
           <script>
     
@@ -173,26 +146,27 @@ if (!$result) {
           </div>
 
           
-          <form id="hide" class="form col-md-8 border mb-5 mt-5 shadow-lg rounded">
+          <form id="hide" style="font-size: 20px;" class="form col-md-8 border mb-2 shadow-lg rounded">
             
-        <div class="col-md-12">
+        <div class="col-md-12 border-bottom py-3">
           <div class="team-member">
+      
             <img class="mx-auto rounded-circle"  src="photos/<?php echo $propic; ?>"  alt="">
            </div>
       </div>
 
-           <div class="col-md-12 text-center border-bottom py-5">
-         <?php echo "Firstname : ".$fname; ?>
+           <div class="col-md-12 text-center border-bottom py-4">
+      <em>   <?php echo "FirstName : ".$fname;?>  </em>
         
           </div>
-          <div class="col-md-12 text-center border-bottom py-5">
-         <?php echo "Lastname : ".$lname; ?>
+       <div class="col-md-12 text-center border-bottom py-4">
+     <em><?php echo "LastName : ".$lname; ?> </em>  
          </div>
-          <div class="col-md-12 text-center border-bottom py-5">
-         <?php echo "Email : ".$email; ?>
+          <div class="col-md-12 text-center border-bottom py-4">
+       <em><?php echo "Email : ".$email; ?> </em>  
           </div>
-          <div class="col-md-12 text-center border-bottom py-5">
-         <?php echo "Username : ".$uname; ?>
+          <div class="col-md-12 text-center border-bottom py-4">
+     <em> <?php echo "Username :  ".$uname; ?> </em> 
           </div>
           </form>
 </div>
