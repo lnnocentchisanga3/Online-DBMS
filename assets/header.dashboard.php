@@ -2,7 +2,7 @@
 		<div class="row">
 
 			<div class="col-md-7  ml-1 text-dark pt-2">
-				<h3 class=""><i class="fa fa-database text-danger"></i> PESONAL STORAGE</h3>
+				<h3 class="brand"><i class="fa fa-database text-danger"></i> Personal Storage</h3>
 			</div>
 			<div class="col-md-4 py-2">
 			
