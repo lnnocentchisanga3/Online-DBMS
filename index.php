@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -17,7 +17,7 @@
 </head>
 <body class="bg-white" onload="myConfirm();">
 	<head class="col-md-12 mb-5">
-		<h6 class="text-center text-uppercase py-4">we are here to serve you better</h6>
+		<h6 class="text-center py-4">we are here to serve you better</h6>
 	</head>
 	<?php
 include_once "assets/header.php";
@@ -50,7 +50,7 @@ include_once "assets/header.php";
 		</div>
 		<div class="col-lg-12 pt-5 container">
 			<div class="row">
-				<h5 class="col-lg-12 text-center pt-1 pb-5 text-white">Take full control of your data  by Keeping it in one place with Us.</h5>
+				<h5 style="color:yellow" class="col-lg-12 text-center pt-1 pb-5">Take full control of your data  by Keeping it in one place with Us.</h5>
 			<div class="col-lg-3 text-white text-center pb-3"><a href="#" class="todo text-white"><i class="fa fa-file-text fa-5x"></i><br>
 			Documents</a></div>
 			<div class="col-lg-3 text-white text-center pb-3"><a href="#" class="todo text-white"><i class="fa fa-clipboard fa-5x"></i><br>To do list</a></div>
