@@ -9,6 +9,13 @@ session_start();
   <?php
   include_once 'assets/head.php';
   ?>
+
+
+<style>
+
+
+</style>
+
 </head>
 <body style="background-color: ">
 <?php
@@ -123,11 +130,11 @@ if (!$result) {
          <div class="col-md-12 mt-5 ml-4 row">
        
         
-        <div class="col-md-7 col-sm-12 " >
-         <p class="profile ml-1 text-dark float-right" style="font-size:30px;margin-right:50px;" ><em> Profile</em></p>
+        <div class="col-md-2 col-sm-12"  style="font-size:30px;" >
+         <p class="s ml-1 text-dark " ><em> Profile</em></p>
   </div>
-  <div class="col-md-5 col-sm-12 ">
-  <button id="showUpdate" class="btn btn-primary float-right shadow"><i class="fa fa-edit"></i> update Profile</button>
+  <div class="col-md-2 col-sm-12 " style=" margin-left: 710px;">
+  <button id="showUpdate"  class="btn btn-primary shadow"><i class="fa fa-edit"></i> update Profile</button>
         
           
          </div>
@@ -145,37 +152,25 @@ if (!$result) {
             
           </div>
 
-          
-          <form id="hide" style="font-size: 20px;" class="form col-md-8 border mb-2 shadow-lg rounded">
-            
-        <div class="col-md-12 border-bottom py-3">
-          <div class="team-member">
-      
-            <img class="mx-auto rounded-circle"  src="photos/<?php echo $propic; ?>"  alt="">
-           </div>
-      </div>
-
-           <div class="col-md-12 text-center border-bottom py-4">
-      <em>   <?php echo "FirstName : ".$fname;?>  </em>
         
-          </div>
-       <div class="col-md-12 text-center border-bottom py-4">
-     <em><?php echo "LastName : ".$lname; ?> </em>  
+            
+     <div id="hide"  style="margin-right:290px; margin-bottom: 710px;" class="container col-md-6 border mb-2 shadow-lg rounded" >
+         <div class="profile avatar-flip text-center ">
+            <img src="photos/<?php echo $propic; ?>" height="150" width="150">
+             <img src="photos/<?php echo $propic; ?>" height="150" width="150">
          </div>
-          <div class="col-md-12 text-center border-bottom py-4">
-       <em><?php echo "Email : ".$email; ?> </em>  
-          </div>
-          <div class="col-md-12 text-center border-bottom py-4">
-     <em> <?php echo "Username :  ".$uname; ?> </em> 
-          </div>
-          </form>
+         <h2 class="text-center" >  <?php echo "$uname ";?>  </h2>
+          <h4><?php echo "$fname $lname ";?> </h4>
+          <p> <?php echo "$email ";?> </p>
+          <p>Connec dolore ipsum faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+</div>     
 </div>
 
-<div id="update"  class="col-md-12 mt-5 ml-4 row">
+<div id="update"  class="col-md-12 mt-5 ml-4  row">
    <div class="col-md-2">
             
           </div>
-          <form class="form col-md-8 border mb-5 mt-5 shadow-lg rounded">
+          <form class="form col-md-8 border mb-8 mt-5 shadow-lg rounded">
             <div class="col-md-12 text-center mt-5 ">
             <i class="fa fa-user-circle fa-4x pb-4"></i>
             <input type="file" name="picture" class="form-control">
