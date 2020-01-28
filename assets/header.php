@@ -10,7 +10,7 @@
 					  <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars"></i> Menu
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					  	<li><a href="index.php" class="nav-link text-dark"><i class="fa fa-home ml-3"></i> home</a></li>
+					  	<li><a href="index.php" class="nav-link  text-dark"><i class="fa fa-home ml-3"></i> home</a></li>
 					    <li><a href="index.login.php?logid= 1" class="nav-link text-dark"><i class="fa fa-sign-in ml-3 text-successx"></i> Login</a></li>
 					    <li><a href="index.login.php?logid= 2" class="nav-link text-dark"><i class="fa fa-pencil ml-3"></i> Signup</a></li>
 					  </ul>
