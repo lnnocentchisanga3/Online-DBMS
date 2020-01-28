@@ -78,7 +78,7 @@ $pwd2 = $pwd.$pwd;
            $_SESSION['username'] = $row['username'];
             $_SESSION['fname'] = $row['first_name'];
            $_SESSION['lname'] = $row['last_name'];
-          header("location: index.log.php?login=success");
+          header("location: ./dashboard/index.php?login=success");
           /*exit();*/
         }
       }
