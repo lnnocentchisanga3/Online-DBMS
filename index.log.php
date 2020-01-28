@@ -123,10 +123,10 @@ if (!$result) {
          <div class="col-md-12 mt-5 ml-4 row">
        
         
-        <div class="col-md-7 col-sm-12 " >
+        <div class="col-md-7" >
          <p class="profile ml-1 text-dark float-right" style="font-size:30px;margin-right:50px;" ><em> Profile</em></p>
   </div>
-  <div class="col-md-5 col-sm-12 ">
+  <div class="col-md-5">
   <button id="showUpdate" class="btn btn-primary float-right shadow"><i class="fa fa-edit"></i> update Profile</button>
         
           

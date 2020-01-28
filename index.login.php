@@ -1,56 +1,3 @@
-<?php
-include_once 'assets/db.php';
-?>
-<?php
-session_start();
-?>
-
-<!--loging verification code goes here-->
-
-<?php
-
-
-if (isset($_POST['login'])) {
-
-  $email = mysqli_real_escape_string($conn,  $_POST['email']);
-  $pwd = mysqli_real_escape_string($conn,  $_POST['pwd']);
-
-
-$pwd2 = $pwd.$pwd;
-  
-  /*empty spaces handlellers*/
-  if (empty($email) ||empty($pwd2)){
-   echo '<script> alert("The fields are empty")</script>';
-    exit();
-  }else{
-    $sql = "SELECT * FROM user WHERE 	email = '$email'";
-    $output = mysqli_query($conn , $sql);
-    $check_output = mysqli_num_rows($output);
-    if ($check_output <1) {
-   echo '<script> alert("You are not yet registered....please signup")</script>';
-    
-    }elseif ($row = mysqli_fetch_assoc($output)){
-        # dehashing the password
-      $hashedpwdcheck = password_verify($pwd2, $row['password']);
-       if ($hashedpwdcheck == false){
-          echo '<script> alert("Your password is not correct")</script>';
-         }elseif ($hashedpwdcheck == true){
-          #login the user
-          $_SESSION['useremail'] = $row['email'];
-          $_SESSION['userpwd'] = $row['password'];
-           $_SESSION['username'] = $row['username'];
-            $_SESSION['fname'] = $row['first_name'];
-           $_SESSION['lname'] = $row['last_name'];
-          header("location: index.log.php?login=success");
-          /*exit();*/
-        }
-      }
-    
-    }
-  }
-?>
-
-
 <!DOCTYPE html>
 
 
@@ -73,7 +20,7 @@ $pwd2 = $pwd.$pwd;
 
 
 </head>
-<body >
+<body class="welcome">
 	<?php
 include_once "assets/header.php";
 	?>
@@ -85,32 +32,96 @@ if (isset($_GET['logid'])) {
 	if ($logid == 1) {
 		?>
 
-<section class="container my-5">
+<?php
+include_once 'assets/db.php';
+?>
+<?php
+session_start();
+?>
+
+<!--loging verification code goes here-->
+
+<?php
+$PWD;
+$notIn;
+
+if (isset($_POST['login'])) {
+$fields = 'fields are empty';
+
+
+  $email = mysqli_real_escape_string($conn,  $_POST['email']);
+  $pwd = mysqli_real_escape_string($conn,  $_POST['pwd']);
+
+
+$pwd2 = $pwd.$pwd;
+  
+  /*empty spaces handlellers*/
+  if (empty($email) ||empty($pwd2)){
+   echo $fields;
+    exit();
+  }else{
+    $sql = "SELECT * FROM user WHERE 	email = '$email'";
+    $output = mysqli_query($conn , $sql);
+    $check_output = mysqli_num_rows($output);
+    if ($check_output <1) {
+  $notIn = 'The email('.$email.') is not yet registered for the service';
+    
+    }elseif ($row = mysqli_fetch_assoc($output)){
+        # dehashing the password
+      $hashedpwdcheck = password_verify($pwd2, $row['password']);
+       if ($hashedpwdcheck == false){
+          $PWD = 'Your password is not correct';
+         }elseif ($hashedpwdcheck == true){
+          #login the user
+          $_SESSION['useremail'] = $row['email'];
+          $_SESSION['userpwd'] = $row['password'];
+           $_SESSION['username'] = $row['username'];
+            $_SESSION['fname'] = $row['first_name'];
+           $_SESSION['lname'] = $row['last_name'];
+          header("location: index.log.php?login=success");
+          /*exit();*/
+        }
+      }
+    
+    }
+  }
+
+?>
+<section class="mt-5">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
       
     </div>
-   <div class="col-md-6 my-5 border shadow-lg rounded">
+   <div class="col-md-5 my-5 pb-4 border shadow-lg bg-white">
       <div class="form">
         <form class="form-defult" method="POST" action="#">
-          <h3 class="text-center mt-3"><i class="fa fa-user"></i> Login</h3>
-          <div class="form-group">
-            <label><i class="fa fa-envelope"></i> Email</label>
-          <input type="email" class="form-control" name="email" required placeholder="Enter the Email">
+          <h3 class="text-center mt-2 mb-5"><i class="fa fa-user-circle fa-3x"></i><br> Login</h3>
+          <div class="input-group mt-5">
+            <div class="input-group-prepend">
+		      <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+		    </div>
+          <input type="email" class="form-control form-control-lg border col-md-12" name="email" required placeholder="Enter the Email">
           </div>
-          <div class="form-group">
-            <label><i class="fa fa-lock"></i> Password</label>
-            <input type="password" class="form-control" name="pwd" required placeholder="Enter the Password">
+          <div class="input-group mt-3">
+           <div class="input-group-prepend">
+		      <span class="input-group-text"><i class="fa fa-lock"></i></span>
+		    </div>
+            <input type="password" class="form-control form-control-lg border col-md-12" name="pwd" required placeholder="Enter the Password">
           </div>
-          <div class="form-group">
-            <input type="submit" class="form-control bg-primary text-white shadow rounded" name="login" value="Login">
+          <div class="form-group mt-5">
+            <input type="submit" class="form-control-lg border col-md-12 bg-success text-white shadow" name="login" value="Login">
           </div>
+          <a href="index.login.php?logid= 2" class="uppercase text-success"><small>I DO NOT HAVE AN ACCOUNT</small></a>
         </form>
       </div>
     </div>
   </div>
 </section>
 
+
+
+<?php
+?>
 		<?php
 	}else{
 		?>
@@ -204,40 +215,56 @@ else
 
 <!--signup code ends here-->
 
-		<section class="container">
+		<section>
 	<div class="row">
-		<div class="col-md-6 my-5">
-			<div class="form border shadow-lg rounded">
-				<form class="form-defult px-2" method="POST" action="#">
+		<div class="col-md-1">
+			
+		</div>
+		<div class="col-md-5 mt-5">
+			<div class="form border  bg-white">
+				<form class="form-defult p-3" method="POST" action="#">
 					<h3 class="text-center"><i class="fa fa-pencil"></i> Signup</h3>
-					<div class="form-group">
-						<label><i class="fa fa-user"></i> Firstname</label>
-					<input type="text" class="form-control" name="fname" required placeholder="Enter your Firstname">
+					<div class="input-group mt-3">
+						<div class="input-group-prepend">
+					      <span class="input-group-text"><i class="fa fa-user"></i></span>
+					    </div>
+					<input type="text" class="form-control form-control-lg" name="fname" required placeholder="Enter your Firstname">
 					</div>
-					<div class="form-group">
-						<label><i class="fa fa-user"></i> Lastname</label>
-					<input type="text" class="form-control" name="lname" required placeholder="Enter your Laststname">
+					<div class="input-group mt-3">
+						<div class="input-group-prepend">
+					      <span class="input-group-text"><i class="fa fa-user"></i></span>
+					    </div>
+					<input type="text" class="form-control form-control-lg" name="lname" required placeholder="Enter your Laststname">
 					</div>
-					<div class="form-group">
-						<label><i class="fa fa-envelope"></i> Email</label>
-					<input type="email" class="form-control" name="email" required placeholder="Enter the Email">
+					<div class="input-group mt-3">
+						<div class="input-group-prepend">
+					      <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+					    </div>
+					<input type="email" class="form-control form-control-lg" name="email" required placeholder="Enter the Email">
 					</div>
-					<div class="form-group">
-						<label><i class="fa fa-user"></i> Username</label>
-					<input type="text" class="form-control" name="uname" required placeholder="Enter your Username">
+					<div class="input-group mt-3">
+						<div class="input-group-prepend">
+					      <span class="input-group-text"><i class="fa fa-user"></i></span>
+					    </div>
+					<input type="text" class="form-control form-control-lg" name="uname" required placeholder="Enter your Username">
 					</div>
-					<div class="form-group">
-						<label><i class="fa fa-key"></i> Password</label>
-						<input type="password" class="form-control" name="pwd" id="pwd1"  required placeholder="Enter the Password">
+					<div class="input-group mt-3">
+						<div class="input-group-prepend">
+					      <span class="input-group-text"><i class="fa fa-lock"></i></span>
+					    </div>
+						<input type="password" class="form-control form-control-lg" name="pwd" id="pwd1"  required placeholder="Enter the Password">
 					</div>
-					<div class="form-group">
-						<label><i class="fa fa-key"></i>Confirm Password</label>
-						<input type="password" class="form-control" id="password" name="pwd2" onkeyup="validatePwd()" required placeholder="Confirm Password">
+					<div class="input-group mt-3">
+						<div class="input-group-prepend">
+					      <span class="input-group-text"><i class="fa fa-lock"></i></span>
+					    </div>
+						<input type="password" class="form-control form-control-lg" id="password" name="pwd2" onkeyup="validatePwd()" required placeholder="Confirm Password">
 						<small id="pwd2" class="text-danger"></small>
 					</div>
-					<div class="form-group">
-						<input type="submit" class="form-control bg-primary text-white"  name="signup" value="Signup">
+					<div class="input-group mt-3">
+						<input type="submit" class="form-control-lg col-md-12 border bg-success text-white"  name="signup" value="Signup">
 					</div>
+					 <a href="index.login.php?logid= 1" class="uppercase text-success"><small>I HAVE AN ACCOUNT</small></a>
 				</form>
 				<script>
 					function validatePwd() {
@@ -253,15 +280,15 @@ else
 				</script>
 			</div>
 		</div>
-		<div class="left-done col-md-6 my-5">
+		<div class="left-done col-md-5 my-5">
 			<div>
-				<div class="border pb-5 shadow-lg rounded">
+				<div class="border pb-5 bg-white">
 					<h3 class="text-center mt-5 pt-5"><i class="fa fa-users"></i> Connect with Social Links</h3>
 					<div class="ml-5 pl-5 mt-5">
-						<a href="#"><i class="fa fa-facebook-official fa-2x"></i> Facebook</a>
+						<a href="#" class="text-white btn btn-success col-md-10"><i class="fa fa-facebook-official text-white fa-2x"></i> Facebook</a>
 					</div>
 					<div class="ml-5 pl-5 mt-5">
-						<a href="#" class="text-dark"><i class="fa fa-google fa-2x "></i> Google Account</a>
+						<a href="#" class="text-white btn btn-dark col-md-10"><i class="fa fa-google fa-2x "></i> Google Account</a>
 					</div>
 				</div>
 			</div>
@@ -276,10 +303,6 @@ else
 
 
 ?>
-
-	<?php
-include_once "assets/footer.php";
-	?>
 
 	<script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
