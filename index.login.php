@@ -96,17 +96,19 @@ $pwd2 = $pwd.$pwd;
       <div class="form">
         <form class="form-defult" method="POST" action="#">
           <h3 class="text-center mt-2 mb-5"><i class="fa fa-user-circle fa-3x"></i><br> Login</h3>
+
           <div class="input-group mt-5">
-            <div class="input-group-prepend">
+          <input type="email" class="form-control form-control-lg border col-md-12" name="email" required placeholder="Enter the Email">
+          <div class="input-group-prepend">
 		      <span class="input-group-text"><i class="fa fa-envelope"></i></span>
 		    </div>
-          <input type="email" class="form-control form-control-lg border col-md-12" name="email" required placeholder="Enter the Email">
           </div>
+
           <div class="input-group mt-3">
-           <div class="input-group-prepend">
+            <input type="password" class="form-control form-control-lg border col-md-12" name="pwd" required placeholder="Enter the Password">
+            <div class="input-group-prepend">
 		      <span class="input-group-text"><i class="fa fa-lock"></i></span>
 		    </div>
-            <input type="password" class="form-control form-control-lg border col-md-12" name="pwd" required placeholder="Enter the Password">
           </div>
           <div class="form-group mt-5">
             <input type="submit" class="form-control-lg border col-md-12 bg-success text-white shadow" name="login" value="Login">
